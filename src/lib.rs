@@ -42,6 +42,19 @@ extern "C" {
     fn SPI4();
     fn SPI5();
     fn SPI6();
+    fn PTC0();
+    fn PTC1();
+    fn PTC2();
+    fn PTC3();
+    fn PTC4();
+    fn PTC5();
+    fn PTC6();
+    fn PTC7();
+    fn WDOG();
+    fn TIMER0();
+    fn TIMER1();
+    fn TIMER2();
+    fn TIMER3();
     fn DMA();
     fn MMC0();
     fn MMC1();
@@ -127,19 +140,19 @@ pub static __EXTERNAL_INTERRUPTS: [Vector; 112] = [
     Vector { _reserved: 0 },
     Vector { _reserved: 0 },
     Vector { _reserved: 0 },
-    Vector { _reserved: 0 },
-    Vector { _reserved: 0 },
-    Vector { _reserved: 0 },
-    Vector { _reserved: 0 },
-    Vector { _reserved: 0 },
-    Vector { _reserved: 0 },
-    Vector { _reserved: 0 },
-    Vector { _reserved: 0 },
-    Vector { _reserved: 0 },
-    Vector { _reserved: 0 },
-    Vector { _reserved: 0 },
-    Vector { _reserved: 0 },
-    Vector { _reserved: 0 },
+    Vector { _handler: PTC0 },
+    Vector { _handler: PTC1 },
+    Vector { _handler: PTC2 },
+    Vector { _handler: PTC3 },
+    Vector { _handler: PTC4 },
+    Vector { _handler: PTC5 },
+    Vector { _handler: PTC6 },
+    Vector { _handler: PTC7 },
+    Vector { _handler: WDOG },
+    Vector { _handler: TIMER0 },
+    Vector { _handler: TIMER1 },
+    Vector { _handler: TIMER2 },
+    Vector { _handler: TIMER3 },
     Vector { _handler: DMA },
     Vector { _handler: MMC0 },
     Vector { _handler: MMC1 },

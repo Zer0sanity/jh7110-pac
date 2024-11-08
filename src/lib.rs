@@ -1677,11 +1677,11 @@ impl core::fmt::Debug for Xspi {
 #[doc = "Cadence XSPI NOR (XIP Flash region): xspi"]
 pub mod xspi;
 #[doc = "Opencores PTC PWM v1: pwm"]
-pub struct Pwm {
+pub struct Pwm0 {
     _marker: PhantomData<*const ()>,
 }
-unsafe impl Send for Pwm {}
-impl Pwm {
+unsafe impl Send for Pwm0 {}
+impl Pwm0 {
     #[doc = r"Pointer to the register block"]
     pub const PTR: *const pwm::RegisterBlock = 0x120d_0000 as *const _;
     #[doc = r"Return the pointer to the register block"]
@@ -1708,20 +1708,105 @@ impl Pwm {
         }
     }
 }
-impl Deref for Pwm {
+impl Deref for Pwm0 {
     type Target = pwm::RegisterBlock;
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*Self::PTR }
     }
 }
-impl core::fmt::Debug for Pwm {
+impl core::fmt::Debug for Pwm0 {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("Pwm").finish()
+        f.debug_struct("Pwm0").finish()
     }
 }
 #[doc = "Opencores PTC PWM v1: pwm"]
 pub mod pwm;
+
+pub struct Pwm1 {
+    _marker: PhantomData<*const ()>,
+}
+unsafe impl Send for Pwm1 {}
+impl Pwm1 {
+    pub const PTR: *const pwm::RegisterBlock = 0x120d_0010 as *const _;
+    pub const fn ptr() -> *const pwm::RegisterBlock {
+        Self::PTR
+    }
+    pub unsafe fn steal() -> Self {
+        Self {
+            _marker: PhantomData,
+        }
+    }
+}
+impl Deref for Pwm1 {
+    type Target = pwm::RegisterBlock;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        unsafe { &*Self::PTR }
+    }
+}
+impl core::fmt::Debug for Pwm1 {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("Pwm1").finish()
+    }
+}
+
+pub struct Pwm2 {
+    _marker: PhantomData<*const ()>,
+}
+unsafe impl Send for Pwm2 {}
+impl Pwm2 {
+    pub const PTR: *const pwm::RegisterBlock = 0x120d_0020 as *const _;
+    pub const fn ptr() -> *const pwm::RegisterBlock {
+        Self::PTR
+    }
+    pub unsafe fn steal() -> Self {
+        Self {
+            _marker: PhantomData,
+        }
+    }
+}
+impl Deref for Pwm2 {
+    type Target = pwm::RegisterBlock;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        unsafe { &*Self::PTR }
+    }
+}
+impl core::fmt::Debug for Pwm2 {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("Pwm2").finish()
+    }
+}
+
+pub struct Pwm3 {
+    _marker: PhantomData<*const ()>,
+}
+unsafe impl Send for Pwm3 {}
+impl Pwm3 {
+    pub const PTR: *const pwm::RegisterBlock = 0x120d_0030 as *const _;
+    pub const fn ptr() -> *const pwm::RegisterBlock {
+        Self::PTR
+    }
+    pub unsafe fn steal() -> Self {
+        Self {
+            _marker: PhantomData,
+        }
+    }
+}
+impl Deref for Pwm3 {
+    type Target = pwm::RegisterBlock;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        unsafe { &*Self::PTR }
+    }
+}
+impl core::fmt::Debug for Pwm3 {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("Pwm3").finish()
+    }
+}
+
 #[doc = "StarFive JH7110 SYS CRG: syscrg"]
 pub struct Syscrg {
     _marker: PhantomData<*const ()>,
@@ -2758,7 +2843,10 @@ pub struct Peripherals {
     #[doc = "xspi"]
     pub xspi: Xspi,
     #[doc = "pwm"]
-    pub pwm: Pwm,
+    pub pwm0: Pwm0,
+    pub pwm1: Pwm1,
+    pub pwm2: Pwm2,
+    pub pwm3: Pwm3,
     #[doc = "syscrg"]
     pub syscrg: Syscrg,
     #[doc = "sys_syscon"]
@@ -2919,7 +3007,16 @@ impl Peripherals {
             xspi: Xspi {
                 _marker: PhantomData,
             },
-            pwm: Pwm {
+            pwm0: Pwm0 {
+                _marker: PhantomData,
+            },
+            pwm1: Pwm1 {
+                _marker: PhantomData,
+            },
+            pwm2: Pwm2 {
+                _marker: PhantomData,
+            },
+            pwm3: Pwm3 {
                 _marker: PhantomData,
             },
             syscrg: Syscrg {
